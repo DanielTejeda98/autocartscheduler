@@ -35,6 +35,43 @@ console.log(assocaites);
 //Function called to create an associate for the scheduler
 function createAssociate(name, start, startMeal, endMeal, end)
 {
+  //Check that associate times and name is correct.
+  if(name == "")
+  {
+    alert("No associate name!");
+    return;
+  }
+  //Does an associate already exist?
+  for(let nameindex = 0; nameindex < assocaites.length; nameindex++)
+    {
+      if(assocaites[nameindex].name == name)
+      {
+        alert("Assocaite with same name already exists! Please use a different name!");
+        return;
+      }
+    }
+  if(end <= start)
+  {
+    alert("Invalid start/end schedule! Please enter a valid schedule!");
+    return;
+  }
+  if(endMeal <= startMeal)
+  {
+    alert("Invalid start break/end break schedule! Please enter a valid schedule!");
+    return;
+  }
+  if(start >= startMeal)
+  {
+    alert("Invalid start shift/start break schedule! Please enter a valid schedule!");
+    return;
+  }
+  if(end <= endMeal)
+  {
+    alert("Invalid end shift/end break schedule! Please enter a valid schedule!");
+    return;
+  }
+
+
   assocaites.push(new Associate(name, start, startMeal, endMeal, end));
   alert("Associate Created!");
 }
@@ -83,7 +120,7 @@ function pickAssociate(currentBlock, prevBlock, assocaitesList)
           if(availableAssociates > 1)
           {
             //Was the associate the last on out?
-            if(prevBlock == 0 || !(schedule[(prevBlock * 2) - 14] == assocaitesList[i].name))
+            if(prevBlock == 0 || !(schedule[prevBlock] == assocaitesList[i].name))
             {
               //Are they above the average count?
               if((assocaitesList[i].outCount <= averageOutCount + 1) || availableAssociates < 3 || attempts > 10)
@@ -137,13 +174,12 @@ function pickAssociate(currentBlock, prevBlock, assocaitesList)
 function generateSchedule()
 {
   schedule = [];
-  let index = 0;
-  for(let block = 7.0; block < 23.0; block += 0.5)
+
+  for(let block = 0; block < 33; block++)
   {
-    if(block == 7.0) pickAssociate(block, 0, assocaites);
-    else  pickAssociate(block, block - 0.5, assocaites);
+    if(block == 0) pickAssociate(block, 0, assocaites);
+    else  pickAssociate(block, block - 1, assocaites);
   
-    console.log(block + ' : ' + schedule[index]);
-    index++;
+    console.log(block + ' : ' + schedule[block]);
   }
 }

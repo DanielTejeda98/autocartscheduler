@@ -8,7 +8,7 @@
   <script src="dict.js"></script>
   
   <h1>Auto Cart Scheduler By Daniel Tejeda</h1>
-  <p>To use, first add an associate, (must not use the same name), and use time in 24 hour format. Then hit generate schedule after.</p>
+  <p>To use, <strong>first add an associate</strong>, (must not use the same name), set the time of their schedule, then hit add associate. Then hit generate schedule after.</p>
   <h2>REFRESHING WILL CLEAR ALL DATA</h2>
   <form name="addAssociate" onsubmit="return false">
     <table>
@@ -21,19 +21,155 @@
       </tr>
       <tr>
         <td>
-          <input type="text" id="name">
+          <input type="text" id="name" required>
         </td>
         <td>
-          <input type="number" step="0.50" id="start">
+          <select id="start">
+            <option value="0">7:00 AM</option>
+            <option value="1">7:30 AM</option>
+            <option value="2">8:00 AM</option>
+            <option value="3">8:30 AM</option>
+            <option value="4">9:00 AM</option>
+            <option value="5">9:30 AM</option>
+            <option value="6">10:00 AM</option>
+            <option value="7">10:30 AM</option>
+            <option value="8">11:00 AM</option>
+            <option value="9">11:30 AM</option>
+            <option value="10">12:00 PM</option>
+            <option value="11">12:30 PM</option>
+            <option value="12">1:00 PM</option>
+            <option value="13">1:30 PM</option>
+            <option value="14">2:00 PM</option>
+            <option value="15">2:30 PM</option>
+            <option value="16">3:00 PM</option>
+            <option value="17">3:30 PM</option>
+            <option value="18">4:00 PM</option>
+            <option value="19">4:30 PM</option>
+            <option value="20">5:00 PM</option>
+            <option value="21">5:30 PM</option>
+            <option value="22">6:00 PM</option>
+            <option value="23">6:30 PM</option>
+            <option value="24">7:00 PM</option>
+            <option value="25">7:30 PM</option>
+            <option value="26">8:00 PM</option>
+            <option value="27">8:30 PM</option>
+            <option value="28">9:00 PM</option>
+            <option value="29">9:30 PM</option>
+            <option value="30">10:00 PM</option>
+            <option value="31">10:30 PM</option>
+            <option value="32">11:00 PM</option>
+          </select>
         </td>
         <td>
-          <input type="number" step="0.50" id="startMeal">
+          <select id="startMeal">
+            <option value="0">7:00 AM</option>
+            <option value="1">7:30 AM</option>
+            <option value="2">8:00 AM</option>
+            <option value="3">8:30 AM</option>
+            <option value="4">9:00 AM</option>
+            <option value="5">9:30 AM</option>
+            <option value="6">10:00 AM</option>
+            <option value="7">10:30 AM</option>
+            <option value="8">11:00 AM</option>
+            <option value="9">11:30 AM</option>
+            <option value="10">12:00 PM</option>
+            <option value="11">12:30 PM</option>
+            <option value="12">1:00 PM</option>
+            <option value="13">1:30 PM</option>
+            <option value="14">2:00 PM</option>
+            <option value="15">2:30 PM</option>
+            <option value="16">3:00 PM</option>
+            <option value="17">3:30 PM</option>
+            <option value="18">4:00 PM</option>
+            <option value="19">4:30 PM</option>
+            <option value="20">5:00 PM</option>
+            <option value="21">5:30 PM</option>
+            <option value="22">6:00 PM</option>
+            <option value="23">6:30 PM</option>
+            <option value="24">7:00 PM</option>
+            <option value="25">7:30 PM</option>
+            <option value="26">8:00 PM</option>
+            <option value="27">8:30 PM</option>
+            <option value="28">9:00 PM</option>
+            <option value="29">9:30 PM</option>
+            <option value="30">10:00 PM</option>
+            <option value="31">10:30 PM</option>
+            <option value="32">11:00 PM</option>
+          </select>
         </td>
         <td>
-          <input type="number" step="0.50" id="endMeal">
+          <select id="endMeal">
+            <option value="0">7:00 AM</option>
+            <option value="1">7:30 AM</option>
+            <option value="2">8:00 AM</option>
+            <option value="3">8:30 AM</option>
+            <option value="4">9:00 AM</option>
+            <option value="5">9:30 AM</option>
+            <option value="6">10:00 AM</option>
+            <option value="7">10:30 AM</option>
+            <option value="8">11:00 AM</option>
+            <option value="9">11:30 AM</option>
+            <option value="10">12:00 PM</option>
+            <option value="11">12:30 PM</option>
+            <option value="12">1:00 PM</option>
+            <option value="13">1:30 PM</option>
+            <option value="14">2:00 PM</option>
+            <option value="15">2:30 PM</option>
+            <option value="16">3:00 PM</option>
+            <option value="17">3:30 PM</option>
+            <option value="18">4:00 PM</option>
+            <option value="19">4:30 PM</option>
+            <option value="20">5:00 PM</option>
+            <option value="21">5:30 PM</option>
+            <option value="22">6:00 PM</option>
+            <option value="23">6:30 PM</option>
+            <option value="24">7:00 PM</option>
+            <option value="25">7:30 PM</option>
+            <option value="26">8:00 PM</option>
+            <option value="27">8:30 PM</option>
+            <option value="28">9:00 PM</option>
+            <option value="29">9:30 PM</option>
+            <option value="30">10:00 PM</option>
+            <option value="31">10:30 PM</option>
+            <option value="32">11:00 PM</option>
+          </select>
         </td>
         <td>
-          <input type="number" step="0.50" id="end">
+          <select id="end">
+            <option value="0">7:00 AM</option>
+            <option value="1">7:30 AM</option>
+            <option value="2">8:00 AM</option>
+            <option value="3">8:30 AM</option>
+            <option value="4">9:00 AM</option>
+            <option value="5">9:30 AM</option>
+            <option value="6">10:00 AM</option>
+            <option value="7">10:30 AM</option>
+            <option value="8">11:00 AM</option>
+            <option value="9">11:30 AM</option>
+            <option value="10">12:00 PM</option>
+            <option value="11">12:30 PM</option>
+            <option value="12">1:00 PM</option>
+            <option value="13">1:30 PM</option>
+            <option value="14">2:00 PM</option>
+            <option value="15">2:30 PM</option>
+            <option value="16">3:00 PM</option>
+            <option value="17">3:30 PM</option>
+            <option value="18">4:00 PM</option>
+            <option value="19">4:30 PM</option>
+            <option value="20">5:00 PM</option>
+            <option value="21">5:30 PM</option>
+            <option value="22">6:00 PM</option>
+            <option value="23">6:30 PM</option>
+            <option value="24">7:00 PM</option>
+            <option value="25">7:30 PM</option>
+            <option value="26">8:00 PM</option>
+            <option value="27">8:30 PM</option>
+            <option value="28">9:00 PM</option>
+            <option value="29">9:30 PM</option>
+            <option value="30">10:00 PM</option>
+            <option value="31">10:30 PM</option>
+            <option value="32">11:00 PM</option>
+          </select>
         </td>
       </tr>
       <tr>
@@ -55,6 +191,12 @@
     console.log(table);
     function createTable()
     {
+      if(assocaites.length == 0)
+      {
+        alert("No associates have been added! Add assoicates first, then hit Generate Schedule");
+        return;
+      }
+
       generateSchedule();
 
       const table = document.querySelector("#table");
