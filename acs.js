@@ -52,7 +52,7 @@ function createAssociate(name, start, startMeal, endMeal, end)
   }
   if(end <= endMeal)
   {
-    alert("Invalid end shift/end break schedule! Please enter a valid schedule!");
+    alert("Invalid end shift: " + end +  "/end break: " + endMeal + " schedule! Please enter a valid schedule!");
     return;
   }
 

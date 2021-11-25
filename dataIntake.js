@@ -6,10 +6,13 @@ document.querySelector('#associateButton').addEventListener('click', (e) =>
     alert("Please fill out associate name!");
     return;
   }
-  const start = document.querySelector('#start').value;
-  const startMeal = document.querySelector('#startMeal').value;
-  const endMeal = document.querySelector('#endMeal').value;
-  const end = document.querySelector('#end').value;
+  const start = parseInt(document.querySelector('#start').value);
+  const startMeal = parseInt(document.querySelector('#startMeal').value);
+  const endMeal = parseInt(document.querySelector('#endMeal').value);
+  const end = parseInt(document.querySelector('#end').value);
+
+  console.log(endMeal);
+  console.log(end);
 
   createAssociate(name, start, startMeal, endMeal, end);
 
