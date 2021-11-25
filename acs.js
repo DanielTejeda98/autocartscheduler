@@ -17,21 +17,6 @@ let schedule = [];
 //Create Associate Array
 let assocaites = [];
 
-// let as1 = new Associate('Eric', 7, 10, 10.5, 15);
-// let as2 = new Associate('Andre', 8, 10.5, 11, 16);
-// let as3 = new Associate('Sofia', 10, 12, 13, 18);
-// let as4 = new Associate('Rosa', 12, 16, 16.5, 23);
-// let as5 = new Associate('Richard', 15, 18, 18.5, 23);
-
-// assocaites.push(as1);
-// assocaites.push(as2);
-// assocaites.push(as3);
-// assocaites.push(as4);
-// assocaites.push(as5);
-// generateSchedule();
-
-console.log(assocaites);
-
 //Function called to create an associate for the scheduler
 function createAssociate(name, start, startMeal, endMeal, end)
 {
