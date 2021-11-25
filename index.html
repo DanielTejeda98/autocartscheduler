@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Auto Cart Scheduler</title>
+</head>
+<body>
+  <script src="acs.js"></script>
+  <script src="dict.js"></script>
+  
+  <h1>Auto Cart Scheduler By Daniel Tejeda</h1>
+
+  <form name="addAssociate" onsubmit="return false">
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Start</th>
+        <th>Start Meal</th>
+        <th>End Meal</th>
+        <th>End Shift</th>
+      </tr>
+      <tr>
+        <td>
+          <input type="text" id="name">
+        </td>
+        <td>
+          <input type="number" step="0.50" id="start">
+        </td>
+        <td>
+          <input type="number" step="0.50" id="startMeal">
+        </td>
+        <td>
+          <input type="number" step="0.50" id="endMeal">
+        </td>
+        <td>
+          <input type="number" step="0.50" id="end">
+        </td>
+      </tr>
+      <tr>
+        <td colspan="5">
+          <button id="associateButton">Add Associate</button>
+          <button onclick="createTable()">Generate Schedule</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+
+  <table id="table">
+    <tr>
+      <th>Time</th>
+      <th>Associate</th>
+    </tr>
+  </table>
+  <script>
+    console.log(table);
+    function createTable()
+    {
+      generateSchedule();
+
+      const table = document.querySelector("#table");
+      table.innerHTML = '';
+      const header = document.createElement('tr');
+      const hc1 = document.createElement('th')
+      hc1.innerHTML = "Time";
+      const hc2 = document.createElement('th')
+      hc2.innerHTML = "Associate";
+      header.appendChild(hc1);
+      header.appendChild(hc2);
+      table.appendChild(header);
+      for(let i = 0; i < 33; i++)
+      {
+        let row = document.createElement('tr');
+        let col1 = document.createElement('td');
+        let col2 = document.createElement('td');
+        
+        col1.innerHTML = dictionary[i];
+        col2.innerHTML = schedule[i];
+  
+        row.appendChild(col1);
+        row.appendChild(col2);
+        table.appendChild(row);
+        
+      }
+    }
+  </script>
+
+<script src="dataIntake.js"></script>
+</body>
+</html>
