@@ -73,9 +73,9 @@ function pickAssociate(currentBlock, prevBlock, assocaitesList)
       availableAssociates++;
       //Sum all avaiable counts
       averageOutCount += assocaitesList[j].outCount;
-      console.log(availableAssociates + ' avaialble associates found!');
     }
   }
+  console.log(availableAssociates + ' avaialble associates found!');
 
   //Check to avoid infinity loops due to no associates
   if(availableAssociates == 0)
@@ -89,13 +89,19 @@ function pickAssociate(currentBlock, prevBlock, assocaitesList)
 
   //Check if there is more than 1 associate available
     //Pick an assoicate at random from the associates array
-    let i = Math.floor(Math.random() * assocaitesList.length);
+    // let i = Math.floor(Math.random() * assocaitesList.length);
+    let i = 0;
     let isFound = false;
     //Check if associate is available
     //Attempt to find someone counter, if it exeeds just pick someone
     let attempts = 0;
     while(!isFound)
     {
+      //Prevent out of scoping
+      if(i >= assocaitesList.length)
+      {
+        i = 0;
+      }
       if(currentBlock >= assocaitesList[i].start && currentBlock < assocaitesList[i].end)
       {
         console.log(assocaitesList[i].name + ' is on property.')
@@ -105,10 +111,10 @@ function pickAssociate(currentBlock, prevBlock, assocaitesList)
           if(availableAssociates > 1)
           {
             //Was the associate the last on out?
-            if(prevBlock == 0 || !(schedule[prevBlock] == assocaitesList[i].name))
+            if(prevBlock == -1 || !(schedule[prevBlock] == assocaitesList[i].name))
             {
               //Are they above the average count?
-              if((assocaitesList[i].outCount <= averageOutCount + 1) || availableAssociates < 3 || attempts > 10)
+              if((parseFloat(assocaitesList[i].outCount) <= averageOutCount) || availableAssociates < 3 || attempts > 10)
               {
                 console.log('Average Out Count: ' + averageOutCount);
                 console.log(assocaitesList[i].name + ' out times: ' + assocaitesList[i].outCount);
@@ -120,7 +126,8 @@ function pickAssociate(currentBlock, prevBlock, assocaitesList)
               else
               {
                 console.log(assocaitesList[i].name + ' has been out above average!');
-                i = Math.floor(Math.random() * assocaitesList.length);
+                // i = Math.floor(Math.random() * assocaitesList.length);
+                i++;
                 attempts++;
                 isFound = false;
               }
@@ -128,7 +135,8 @@ function pickAssociate(currentBlock, prevBlock, assocaitesList)
             else
             {
               console.log(assocaitesList[i].name + ' was just out!');
-              i = Math.floor(Math.random() * assocaitesList.length);
+              // i = Math.floor(Math.random() * assocaitesList.length);
+              i++;
               isFound = false;
             }
           }
@@ -144,13 +152,15 @@ function pickAssociate(currentBlock, prevBlock, assocaitesList)
         else
         {
           console.log(assocaitesList[i].name + ' is on break!.')
-          i = Math.floor(Math.random() * assocaitesList.length);
+          // i = Math.floor(Math.random() * assocaitesList.length);
+          i++;
           isFound = false;
         }
       }
       else
         {
-          i = Math.floor(Math.random() * assocaitesList.length);
+          // i = Math.floor(Math.random() * assocaitesList.length);
+          i++;
           isFound = false;
         }
     }
@@ -159,11 +169,15 @@ function pickAssociate(currentBlock, prevBlock, assocaitesList)
 function generateSchedule()
 {
   schedule = [];
+  //Reset out counts
+  for(let associateIndex = 0; associateIndex < assocaites.length; associateIndex++)
+  {
+    assocaites[associateIndex].outCount = 0;
+  }
 
   for(let block = 0; block < 33; block++)
   {
-    if(block == 0) pickAssociate(block, 0, assocaites);
-    else  pickAssociate(block, block - 1, assocaites);
+    pickAssociate(block, block - 1, assocaites);
   
     console.log(block + ' : ' + schedule[block]);
   }

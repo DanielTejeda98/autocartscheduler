@@ -2,29 +2,34 @@
 <html>
 <head>
   <title>Auto Cart Scheduler</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="main.css">
 </head>
 <body>
   <script src="acs.js?ver=1.0.1"></script>
   <script src="dict.js?ver=1.0.1"></script>
-  
-  <h1>Auto Cart Scheduler By Daniel Tejeda</h1>
+  <header id="header" class="bg-PublixGreen text-white">
+    <h1>Auto Cart Scheduler By Daniel Tejeda</h1>
+  </header>
   <p>To use, <strong>first add an associate</strong>, (must not use the same name), set the time of their schedule, then hit add associate. Then hit generate schedule after.</p>
   <h2>REFRESHING WILL CLEAR ALL DATA</h2>
-  <form name="addAssociate" onsubmit="return false">
-    <table>
-      <tr>
-        <th>Name</th>
-        <th>Start</th>
-        <th>Start Meal</th>
-        <th>End Meal</th>
-        <th>End Shift</th>
-      </tr>
-      <tr>
-        <td>
-          <input type="text" id="name" required>
-        </td>
-        <td>
-          <select id="start">
+  <form name="addAssociate" onsubmit="return false" class="form-group">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="name">Associate Name</label>
+            <input type="text" name="name" id="name" class="form-control" placeholder="" aria-describedby="helpId" required>
+            <small id="helpId" class="text-muted">Associate Name Field</small>
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="start">Start Shift</label>
+            <select class="form-control" name="start" id="start">
             <option value="0">7:00 AM</option>
             <option value="1">7:30 AM</option>
             <option value="2">8:00 AM</option>
@@ -58,10 +63,13 @@
             <option value="30">10:00 PM</option>
             <option value="31">10:30 PM</option>
             <option value="32">11:00 PM</option>
-          </select>
-        </td>
-        <td>
-          <select id="startMeal">
+            </select>
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="startMeal">Start Meal</label>
+            <select class="form-control" name="startMeal" id="startMeal">
             <option value="0">7:00 AM</option>
             <option value="1">7:30 AM</option>
             <option value="2">8:00 AM</option>
@@ -95,10 +103,13 @@
             <option value="30">10:00 PM</option>
             <option value="31">10:30 PM</option>
             <option value="32">11:00 PM</option>
-          </select>
-        </td>
-        <td>
-          <select id="endMeal">
+            </select>
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="endMeal">End Meal</label>
+            <select class="form-control" name="endMeal" id="endMeal">
             <option value="0">7:00 AM</option>
             <option value="1">7:30 AM</option>
             <option value="2">8:00 AM</option>
@@ -132,10 +143,13 @@
             <option value="30">10:00 PM</option>
             <option value="31">10:30 PM</option>
             <option value="32">11:00 PM</option>
-          </select>
-        </td>
-        <td>
-          <select id="end">
+            </select>
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="end">End Shift</label>
+            <select class="form-control" name="end" id="end">
             <option value="0">7:00 AM</option>
             <option value="1">7:30 AM</option>
             <option value="2">8:00 AM</option>
@@ -169,24 +183,23 @@
             <option value="30">10:00 PM</option>
             <option value="31">10:30 PM</option>
             <option value="32">11:00 PM</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td colspan="5">
-          <button id="associateButton">Add Associate</button>
-          <button onclick="createTable()">Generate Schedule</button>
-        </td>
-      </tr>
-    </table>
+            </select>
+          </div>
+        </div>
+      </div>
+      <button id="associateButton" class="btn btn-primary">Add Associate</button>
+      <button onclick="createTable()" class="btn btn-success">Generate Schedule</button>
+    </div>
   </form>
 
-  <table id="table">
-    <tr>
-      <th>Time</th>
-      <th>Associate</th>
-    </tr>
-  </table>
+  <div class="container">
+    <table id="table" class="table table-striped table-bordered">
+      <tr>
+        <th>Time</th>
+        <th>Associate</th>
+      </tr>
+    </table>
+  </div>
   <script>
     console.log(table);
     function createTable()
@@ -227,5 +240,10 @@
   </script>
 
 <script src="dataIntake.js?ver=1.0.1"></script>
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>

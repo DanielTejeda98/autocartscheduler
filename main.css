@@ -1,0 +1,12 @@
+/* Colors */
+
+.bg-PublixGreen {
+  background-color: #3e902d;
+}
+
+@media only screen and (min-width: 768px)
+{
+  #table td:first-of-type {
+    width:20%;
+  }
+}
