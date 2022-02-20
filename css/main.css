@@ -4,6 +4,30 @@
   background-color: #3e902d;
 }
 
+/* Footer flush */
+body {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrapper {
+  padding-bottom: 10rem;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+}
+
+@media only screen and (max-width: 768px)
+{
+  footer div {
+    font-size: 0.8rem;
+  }
+}
+/* end footer flush */
 @media only screen and (min-width: 768px)
 {
   #table td:first-of-type {
@@ -17,9 +41,24 @@ table {
   vertical-align: top;
 }
 
+table td:first-of-type
+{
+  font-weight: bold;
+}
+
 table, th, td {
   border: 1px solid black !important;
   padding: 10px !important;
+}
+
+th{
+  background-color: #3e902d;
+  color: #ffffff;
+}
+
+tr:nth-child(odd) {
+  background-color: #3e902d;
+  color: #ffffff;
 }
 
 .form-group[data-error] .form-control {
@@ -33,4 +72,8 @@ table, th, td {
   font-size: 0.9em;
   color: #c92432;
   display: block;
+}
+
+#tableDivision {
+  min-height: 1vh;
 }

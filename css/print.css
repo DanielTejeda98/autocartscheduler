@@ -1,0 +1,14 @@
+/* Print CSS */
+header, section, footer {
+  display: none;
+}
+
+.btn {
+  display: none;
+}
+
+table, th, td {
+  border: 1px solid black !important;
+  padding: 2px !important;
+  color: black;
+}

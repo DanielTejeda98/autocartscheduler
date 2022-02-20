@@ -6,202 +6,219 @@
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" media="print" href="./css/print.css">
 </head>
 <body>
-  <script src="acs.js?ver=1.0.1"></script>
-  <script src="dict.js?ver=1.0.1"></script>
-  <header id="header" class="bg-PublixGreen text-white">
-    <h1>Auto Cart Scheduler By Daniel Tejeda</h1>
-  </header>
-  <p class="text-center">To use, <strong>first add an associate</strong>, (must not use the same name), set the time of their schedule, then hit add associate. Then hit generate schedule after.</p>
-  <h2 class="text-center">REFRESHING WILL CLEAR ALL DATA</h2>
-  <form name="addAssociate" onsubmit="return false" class="form-group">
-    <div class="container mb-5">
-      <div class="row mb-3">
-        <div class="col-sm">
-          <div class="form-group">
-            <label for="name">Associate Name</label>
-            <input type="text" name="name" id="name" class="form-control" placeholder="David" aria-describedby="helpId">
-            <small id="helpId" class="text-muted">Associate Name Field</small>
+  <script src="./scripts/acs.js?ver=1.0.1"></script>
+  <script src="./scripts/dict.js?ver=1.0.1"></script>
+  <div id="content-wrapper">
+    <header id="header" class="bg-PublixGreen text-white">
+      <h1>Auto Cart Scheduler By Daniel Tejeda</h1>
+    </header>
+    <section>
+      <p class="text-center">To use, <strong>first add an associate</strong>, (must not use the same name), set the time of their schedule, then hit add associate. Then hit generate schedule after.</p>
+      <h2 class="text-center">REFRESHING WILL CLEAR ALL DATA</h2>
+      <form name="addAssociate" onsubmit="return false" class="form-group">
+        <div class="container mb-5">
+          <div class="row mb-3">
+            <div class="col-sm">
+              <div class="form-group">
+                <label for="name">Associate Name</label>
+                <input type="text" name="name" id="name" class="form-control" placeholder="David" aria-describedby="helpId">
+                <small id="helpId" class="text-muted">Associate Name Field</small>
+              </div>
+            </div>
+            <div class="col-sm">
+              <div class="form-group">
+                <label for="start">Start Shift</label>
+                <select class="form-control" name="start" id="start">
+                <option value="0">7:00 AM</option>
+                <option value="1">7:30 AM</option>
+                <option value="2">8:00 AM</option>
+                <option value="3">8:30 AM</option>
+                <option value="4">9:00 AM</option>
+                <option value="5">9:30 AM</option>
+                <option value="6">10:00 AM</option>
+                <option value="7">10:30 AM</option>
+                <option value="8">11:00 AM</option>
+                <option value="9">11:30 AM</option>
+                <option value="10">12:00 PM</option>
+                <option value="11">12:30 PM</option>
+                <option value="12">1:00 PM</option>
+                <option value="13">1:30 PM</option>
+                <option value="14">2:00 PM</option>
+                <option value="15">2:30 PM</option>
+                <option value="16">3:00 PM</option>
+                <option value="17">3:30 PM</option>
+                <option value="18">4:00 PM</option>
+                <option value="19">4:30 PM</option>
+                <option value="20">5:00 PM</option>
+                <option value="21">5:30 PM</option>
+                <option value="22">6:00 PM</option>
+                <option value="23">6:30 PM</option>
+                <option value="24">7:00 PM</option>
+                <option value="25">7:30 PM</option>
+                <option value="26">8:00 PM</option>
+                <option value="27">8:30 PM</option>
+                <option value="28">9:00 PM</option>
+                <option value="29">9:30 PM</option>
+                <option value="30">10:00 PM</option>
+                <option value="31">10:30 PM</option>
+                <option value="32">11:00 PM</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm">
+              <div class="form-group">
+                <label for="startMeal">Start Meal</label>
+                <select class="form-control" name="startMeal" id="startMeal">
+                <option value="-1">No Break</option>
+                <option value="0">7:00 AM</option>
+                <option value="1">7:30 AM</option>
+                <option value="2">8:00 AM</option>
+                <option value="3">8:30 AM</option>
+                <option value="4">9:00 AM</option>
+                <option value="5">9:30 AM</option>
+                <option value="6">10:00 AM</option>
+                <option value="7">10:30 AM</option>
+                <option value="8">11:00 AM</option>
+                <option value="9">11:30 AM</option>
+                <option value="10">12:00 PM</option>
+                <option value="11">12:30 PM</option>
+                <option value="12">1:00 PM</option>
+                <option value="13">1:30 PM</option>
+                <option value="14">2:00 PM</option>
+                <option value="15">2:30 PM</option>
+                <option value="16">3:00 PM</option>
+                <option value="17">3:30 PM</option>
+                <option value="18">4:00 PM</option>
+                <option value="19">4:30 PM</option>
+                <option value="20">5:00 PM</option>
+                <option value="21">5:30 PM</option>
+                <option value="22">6:00 PM</option>
+                <option value="23">6:30 PM</option>
+                <option value="24">7:00 PM</option>
+                <option value="25">7:30 PM</option>
+                <option value="26">8:00 PM</option>
+                <option value="27">8:30 PM</option>
+                <option value="28">9:00 PM</option>
+                <option value="29">9:30 PM</option>
+                <option value="30">10:00 PM</option>
+                <option value="31">10:30 PM</option>
+                <option value="32">11:00 PM</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm">
+              <div class="form-group">
+                <label for="endMeal">End Meal</label>
+                <select class="form-control" name="endMeal" id="endMeal">
+                <option value="-1">No Break</option>
+                <option value="0">7:00 AM</option>
+                <option value="1">7:30 AM</option>
+                <option value="2">8:00 AM</option>
+                <option value="3">8:30 AM</option>
+                <option value="4">9:00 AM</option>
+                <option value="5">9:30 AM</option>
+                <option value="6">10:00 AM</option>
+                <option value="7">10:30 AM</option>
+                <option value="8">11:00 AM</option>
+                <option value="9">11:30 AM</option>
+                <option value="10">12:00 PM</option>
+                <option value="11">12:30 PM</option>
+                <option value="12">1:00 PM</option>
+                <option value="13">1:30 PM</option>
+                <option value="14">2:00 PM</option>
+                <option value="15">2:30 PM</option>
+                <option value="16">3:00 PM</option>
+                <option value="17">3:30 PM</option>
+                <option value="18">4:00 PM</option>
+                <option value="19">4:30 PM</option>
+                <option value="20">5:00 PM</option>
+                <option value="21">5:30 PM</option>
+                <option value="22">6:00 PM</option>
+                <option value="23">6:30 PM</option>
+                <option value="24">7:00 PM</option>
+                <option value="25">7:30 PM</option>
+                <option value="26">8:00 PM</option>
+                <option value="27">8:30 PM</option>
+                <option value="28">9:00 PM</option>
+                <option value="29">9:30 PM</option>
+                <option value="30">10:00 PM</option>
+                <option value="31">10:30 PM</option>
+                <option value="32">11:00 PM</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm">
+              <div class="form-group">
+                <label for="end">End Shift</label>
+                <select class="form-control" name="end" id="end">
+                <option value="0">7:00 AM</option>
+                <option value="1">7:30 AM</option>
+                <option value="2">8:00 AM</option>
+                <option value="3">8:30 AM</option>
+                <option value="4">9:00 AM</option>
+                <option value="5">9:30 AM</option>
+                <option value="6">10:00 AM</option>
+                <option value="7">10:30 AM</option>
+                <option value="8">11:00 AM</option>
+                <option value="9">11:30 AM</option>
+                <option value="10">12:00 PM</option>
+                <option value="11">12:30 PM</option>
+                <option value="12">1:00 PM</option>
+                <option value="13">1:30 PM</option>
+                <option value="14">2:00 PM</option>
+                <option value="15">2:30 PM</option>
+                <option value="16">3:00 PM</option>
+                <option value="17">3:30 PM</option>
+                <option value="18">4:00 PM</option>
+                <option value="19">4:30 PM</option>
+                <option value="20">5:00 PM</option>
+                <option value="21">5:30 PM</option>
+                <option value="22">6:00 PM</option>
+                <option value="23">6:30 PM</option>
+                <option value="24">7:00 PM</option>
+                <option value="25">7:30 PM</option>
+                <option value="26">8:00 PM</option>
+                <option value="27">8:30 PM</option>
+                <option value="28">9:00 PM</option>
+                <option value="29">9:30 PM</option>
+                <option value="30">10:00 PM</option>
+                <option value="31">10:30 PM</option>
+                <option value="32">11:00 PM</option>
+                </select>
+              </div>
+            </div>
           </div>
+          <button id="associateButton" class="btn btn-primary">Add Associate</button>
+          <button onclick="createTable()" class="btn btn-success">Generate Schedule</button>
         </div>
-        <div class="col-sm">
-          <div class="form-group">
-            <label for="start">Start Shift</label>
-            <select class="form-control" name="start" id="start">
-            <option value="0">7:00 AM</option>
-            <option value="1">7:30 AM</option>
-            <option value="2">8:00 AM</option>
-            <option value="3">8:30 AM</option>
-            <option value="4">9:00 AM</option>
-            <option value="5">9:30 AM</option>
-            <option value="6">10:00 AM</option>
-            <option value="7">10:30 AM</option>
-            <option value="8">11:00 AM</option>
-            <option value="9">11:30 AM</option>
-            <option value="10">12:00 PM</option>
-            <option value="11">12:30 PM</option>
-            <option value="12">1:00 PM</option>
-            <option value="13">1:30 PM</option>
-            <option value="14">2:00 PM</option>
-            <option value="15">2:30 PM</option>
-            <option value="16">3:00 PM</option>
-            <option value="17">3:30 PM</option>
-            <option value="18">4:00 PM</option>
-            <option value="19">4:30 PM</option>
-            <option value="20">5:00 PM</option>
-            <option value="21">5:30 PM</option>
-            <option value="22">6:00 PM</option>
-            <option value="23">6:30 PM</option>
-            <option value="24">7:00 PM</option>
-            <option value="25">7:30 PM</option>
-            <option value="26">8:00 PM</option>
-            <option value="27">8:30 PM</option>
-            <option value="28">9:00 PM</option>
-            <option value="29">9:30 PM</option>
-            <option value="30">10:00 PM</option>
-            <option value="31">10:30 PM</option>
-            <option value="32">11:00 PM</option>
-            </select>
-          </div>
-        </div>
-        <div class="col-sm">
-          <div class="form-group">
-            <label for="startMeal">Start Meal</label>
-            <select class="form-control" name="startMeal" id="startMeal">
-            <option value="-1">No Break</option>
-            <option value="0">7:00 AM</option>
-            <option value="1">7:30 AM</option>
-            <option value="2">8:00 AM</option>
-            <option value="3">8:30 AM</option>
-            <option value="4">9:00 AM</option>
-            <option value="5">9:30 AM</option>
-            <option value="6">10:00 AM</option>
-            <option value="7">10:30 AM</option>
-            <option value="8">11:00 AM</option>
-            <option value="9">11:30 AM</option>
-            <option value="10">12:00 PM</option>
-            <option value="11">12:30 PM</option>
-            <option value="12">1:00 PM</option>
-            <option value="13">1:30 PM</option>
-            <option value="14">2:00 PM</option>
-            <option value="15">2:30 PM</option>
-            <option value="16">3:00 PM</option>
-            <option value="17">3:30 PM</option>
-            <option value="18">4:00 PM</option>
-            <option value="19">4:30 PM</option>
-            <option value="20">5:00 PM</option>
-            <option value="21">5:30 PM</option>
-            <option value="22">6:00 PM</option>
-            <option value="23">6:30 PM</option>
-            <option value="24">7:00 PM</option>
-            <option value="25">7:30 PM</option>
-            <option value="26">8:00 PM</option>
-            <option value="27">8:30 PM</option>
-            <option value="28">9:00 PM</option>
-            <option value="29">9:30 PM</option>
-            <option value="30">10:00 PM</option>
-            <option value="31">10:30 PM</option>
-            <option value="32">11:00 PM</option>
-            </select>
-          </div>
-        </div>
-        <div class="col-sm">
-          <div class="form-group">
-            <label for="endMeal">End Meal</label>
-            <select class="form-control" name="endMeal" id="endMeal">
-            <option value="-1">No Break</option>
-            <option value="0">7:00 AM</option>
-            <option value="1">7:30 AM</option>
-            <option value="2">8:00 AM</option>
-            <option value="3">8:30 AM</option>
-            <option value="4">9:00 AM</option>
-            <option value="5">9:30 AM</option>
-            <option value="6">10:00 AM</option>
-            <option value="7">10:30 AM</option>
-            <option value="8">11:00 AM</option>
-            <option value="9">11:30 AM</option>
-            <option value="10">12:00 PM</option>
-            <option value="11">12:30 PM</option>
-            <option value="12">1:00 PM</option>
-            <option value="13">1:30 PM</option>
-            <option value="14">2:00 PM</option>
-            <option value="15">2:30 PM</option>
-            <option value="16">3:00 PM</option>
-            <option value="17">3:30 PM</option>
-            <option value="18">4:00 PM</option>
-            <option value="19">4:30 PM</option>
-            <option value="20">5:00 PM</option>
-            <option value="21">5:30 PM</option>
-            <option value="22">6:00 PM</option>
-            <option value="23">6:30 PM</option>
-            <option value="24">7:00 PM</option>
-            <option value="25">7:30 PM</option>
-            <option value="26">8:00 PM</option>
-            <option value="27">8:30 PM</option>
-            <option value="28">9:00 PM</option>
-            <option value="29">9:30 PM</option>
-            <option value="30">10:00 PM</option>
-            <option value="31">10:30 PM</option>
-            <option value="32">11:00 PM</option>
-            </select>
-          </div>
-        </div>
-        <div class="col-sm">
-          <div class="form-group">
-            <label for="end">End Shift</label>
-            <select class="form-control" name="end" id="end">
-            <option value="0">7:00 AM</option>
-            <option value="1">7:30 AM</option>
-            <option value="2">8:00 AM</option>
-            <option value="3">8:30 AM</option>
-            <option value="4">9:00 AM</option>
-            <option value="5">9:30 AM</option>
-            <option value="6">10:00 AM</option>
-            <option value="7">10:30 AM</option>
-            <option value="8">11:00 AM</option>
-            <option value="9">11:30 AM</option>
-            <option value="10">12:00 PM</option>
-            <option value="11">12:30 PM</option>
-            <option value="12">1:00 PM</option>
-            <option value="13">1:30 PM</option>
-            <option value="14">2:00 PM</option>
-            <option value="15">2:30 PM</option>
-            <option value="16">3:00 PM</option>
-            <option value="17">3:30 PM</option>
-            <option value="18">4:00 PM</option>
-            <option value="19">4:30 PM</option>
-            <option value="20">5:00 PM</option>
-            <option value="21">5:30 PM</option>
-            <option value="22">6:00 PM</option>
-            <option value="23">6:30 PM</option>
-            <option value="24">7:00 PM</option>
-            <option value="25">7:30 PM</option>
-            <option value="26">8:00 PM</option>
-            <option value="27">8:30 PM</option>
-            <option value="28">9:00 PM</option>
-            <option value="29">9:30 PM</option>
-            <option value="30">10:00 PM</option>
-            <option value="31">10:30 PM</option>
-            <option value="32">11:00 PM</option>
-            </select>
-          </div>
-        </div>
-      </div>
-      <button id="associateButton" class="btn btn-primary">Add Associate</button>
-      <button onclick="createTable()" class="btn btn-success">Generate Schedule</button>
-    </div>
-  </form>
+      </form>
+    </section>
 
-  <div id="tableDivision" class="container">
-    <table id="table">
-      <tr>
-        <th>Time</th>
-        <th>Associate</th>
-      </tr>
-    </table>
+    <div id="tableDivision" class="container print">
+      <div class="float-end mb-1">
+        <button onclick="window.print(); return false;" class="btn btn-outline-primary"><i class="bi bi-printer-fill"></i><span class="p-2">Print</span></button>
+      </div>
+      <table id="table">
+        <tr>
+          <th>Time</th>
+          <th>Associate</th>
+        </tr>
+      </table>
+    </div>
   </div>
+  <footer class="bg-PublixGreen text-center text-lg-start">
+    <div class="text-center p-3">
+      &copy; <script>document.write(new Date().getFullYear().toString());</script> Copyright: 
+      <a href="http://danieltejeda.dev" target="_blank">Daniel Tejeda</a><br>
+      Auto Cart Scheduler is not affiliated with Publix Supermarkets Inc or any other company. No data is kept in storage with this applicaiton.
+    </div>
+  
+  </footer>
   <script>
     console.log(table);
     function createTable()
@@ -240,7 +257,7 @@
     }
   </script>
 
-<script src="dataIntake.js?ver=1.0.1"></script>
+<script src="./scripts/dataIntake.js?ver=1.0.1"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>
