@@ -40,12 +40,17 @@ function createAssociate(name, start, startMeal, endMeal, end)
     errorHandler(document.querySelector('#end'), "Invalid end schedule!")
     return;
   }
-  if(endMeal <= startMeal)
+  if(startMeal == -1 && endMeal != -1 || startMeal != -1 && endMeal == -1)
   {
     errorHandler(document.querySelector('#endMeal'), "Invalid end break schedule!")
     return;
   }
-  if(start >= startMeal)
+  if(endMeal != -1 && endMeal <= startMeal)
+  {
+    errorHandler(document.querySelector('#endMeal'), "Invalid end break schedule!")
+    return;
+  }
+  if(startMeal != -1 && (start >= startMeal))
   {
     errorHandler(document.querySelector('#startMeal'), "Invalid start break schedule!")
     return;

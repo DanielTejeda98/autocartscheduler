@@ -22,12 +22,13 @@ document.querySelector('#associateButton').addEventListener('click', (e) =>
 //Data validation CSS handler
 
 /*
-Call this funciton to handle creating error elements in the form.
-@param {HTML Element} element is the HTML element that the error originates from
-@param {message} message is the message that will be displayed in the error
-*/
+ * Call this funciton to handle creating error elements in the form.
+ * @param {HTML Element} element is the HTML element that the error originates from
+ * @param {String} message is the message that will be displayed in the error
+ */
 const errorHandler = (element, message) =>
 {
+  //Check if our types are correct, else throw an error
   if(!(element instanceof Element))
   {
     throw `Expected HTML Element as a parameter, found ${typeof element}`
