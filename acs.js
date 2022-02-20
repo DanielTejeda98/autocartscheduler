@@ -23,7 +23,7 @@ function createAssociate(name, start, startMeal, endMeal, end)
   //Check that associate times and name is correct.
   if(name == "")
   {
-    alert("No associate name!");
+    errorHandler(document.querySelector('#name'), "Please fill out associate name!")
     return;
   }
   //Does an associate already exist?
@@ -31,28 +31,28 @@ function createAssociate(name, start, startMeal, endMeal, end)
     {
       if(assocaites[nameindex].name == name)
       {
-        alert("Assocaite with same name already exists! Please use a different name!");
+        errorHandler(document.querySelector('#name'), "Assocaite with same name already exists! Please use a different name!")
         return;
       }
     }
   if(end <= start)
   {
-    alert("Invalid start/end schedule! Please enter a valid schedule!");
+    errorHandler(document.querySelector('#end'), "Invalid end schedule!")
     return;
   }
   if(endMeal <= startMeal)
   {
-    alert("Invalid start break/end break schedule! Please enter a valid schedule!");
+    errorHandler(document.querySelector('#endMeal'), "Invalid end break schedule!")
     return;
   }
   if(start >= startMeal)
   {
-    alert("Invalid start shift/start break schedule! Please enter a valid schedule!");
+    errorHandler(document.querySelector('#startMeal'), "Invalid start break schedule!")
     return;
   }
   if(end <= endMeal)
   {
-    alert("Invalid end shift: " + end +  "/end break: " + endMeal + " schedule! Please enter a valid schedule!");
+    errorHandler(document.querySelector('#endMeal'), "Invalid end break schedule!")
     return;
   }
 
