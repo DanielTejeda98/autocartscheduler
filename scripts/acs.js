@@ -1,21 +1,7 @@
 //Auto Cart Scheduler
 
-//Create Associate Class
-class Associate {
-  constructor(name, start, startMeal, endMeal, end)
-  {
-    this.name = name;
-    this.start = start;
-    this.startMeal = startMeal;
-    this.endMeal = endMeal;
-    this.end = end;
-    this.outCount = 0;
-  }
-}
 //Create Schedule Object
 let schedule = [];
-//Create Associate Array
-let assocaites = [];
 
 //Function called to create an associate for the scheduler
 function createAssociate(name, start, startMeal, endMeal, end)

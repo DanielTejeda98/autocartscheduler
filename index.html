@@ -11,7 +11,8 @@
   <link rel="stylesheet" media="print" href="./css/print.css">
 </head>
 <body>
-  <script src="./scripts/acs.js?ver=1.0.1"></script>
+  <script defer src="./scripts/associates.js"></script>
+  <script defer src="./scripts/acs.js?ver=1.0.1"></script>
   <script src="./scripts/dict.js?ver=1.0.1"></script>
   <div id="content-wrapper">
     <header id="header" class="bg-PublixGreen text-white">
@@ -195,7 +196,40 @@
           </div>
           <button id="associateButton" class="btn btn-primary">Add Associate</button>
           <button onclick="createTable()" class="btn btn-success">Generate Schedule</button>
-        </div>
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="getAssociates()">
+            Assocaites
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Assocaites</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="container">
+                    <div class="row">
+                      <div class="Header col-2">Name</div>
+                      <div class="Header col-2">Start</div>
+                      <div class="Header col-2">S Break</div>
+                      <div class="Header col-2">E Break</div>
+                      <div class="Header col-2">End</div>
+                      <div class="Header col-2">Edits</div>
+                    </div>
+                    <hr>
+                    <div id="associatesData"></div>
+
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
       </form>
     </section>
 

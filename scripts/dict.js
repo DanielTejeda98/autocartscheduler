@@ -33,5 +33,6 @@ let dictionary = {
   31: "10:30 PM",
   32: "11:00 PM",
   33: "11:30 PM",
+  '-1': "No Break"
 }
 
