@@ -36,3 +36,10 @@ let dictionary = {
   '-1': "No Break"
 }
 
+let keywords = {
+  'start': 'Start Shift',
+  'startMeal': 'Start Meal',
+  'endMeal': 'End Meal',
+  'end': 'End Shift'
+}
+
