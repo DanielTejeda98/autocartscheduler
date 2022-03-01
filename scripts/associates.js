@@ -128,7 +128,8 @@ function reloadButtons() {
   document.querySelectorAll('#btnEdit').forEach(btn => {
     btn.addEventListener('click', e =>
     {
-      associateName = e.delegateTarget.parentElement.parentElement.firstChild.innerText
+      console.log(e.target)
+      associateName = e.target.parentElement.parentElement.firstChild.innerText
       //Edit associate from associates array by name
       //Get associate
       editAssociate = assocaites[assocaites.findIndex(associate => associate.name === associateName)]
@@ -217,7 +218,7 @@ function reloadButtons() {
   document.querySelectorAll('#btnDelete').forEach(btn => {
     btn.addEventListener('click', e =>
     {
-      associateName = e.delegateTarget.parentElement.parentElement.firstChild.innerText
+      associateName = e.target.parentElement.parentElement.firstChild.innerText
       //Remove associate from associates array by name
       deleteAssociate(associateName)
       getAssociates()
