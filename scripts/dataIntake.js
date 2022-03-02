@@ -11,9 +11,6 @@ document.querySelector('#associateButton').addEventListener('click', (e) =>
   const endMeal = parseInt(document.querySelector('#endMeal').value);
   const end = parseInt(document.querySelector('#end').value);
 
-  console.log(endMeal);
-  console.log(end);
-
   createAssociate(name, start, startMeal, endMeal, end);
 
 })

@@ -35,6 +35,21 @@ footer {
   }
 }
 
+@media only screen and (max-width: 480px) {
+  .btn span {
+    display: none;
+  }
+
+  .header {
+    font-size: 0.9em;
+  }
+
+  #actionButtons button
+  {
+    padding: 0.8em 1.2em !important;
+  }
+}
+
 table {
   width: 100%;
   margin-bottom: 1rem;
@@ -77,3 +92,22 @@ tr:nth-child(odd) {
 #tableDivision {
   min-height: 1vh;
 }
+
+/* Fix icon inside button click bug */
+.bi {
+  pointer-events: none;
+}
+
+/*ALERTS*/
+.alert {
+  display: none;
+}
+
+.alert[data-success] {
+  display: block;
+}
+
+.alert[data-error] {
+  display: block;
+}
+

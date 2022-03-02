@@ -1,70 +1,7 @@
 //Auto Cart Scheduler
 
-//Create Associate Class
-class Associate {
-  constructor(name, start, startMeal, endMeal, end)
-  {
-    this.name = name;
-    this.start = start;
-    this.startMeal = startMeal;
-    this.endMeal = endMeal;
-    this.end = end;
-    this.outCount = 0;
-  }
-}
 //Create Schedule Object
 let schedule = [];
-//Create Associate Array
-let assocaites = [];
-
-//Function called to create an associate for the scheduler
-function createAssociate(name, start, startMeal, endMeal, end)
-{
-  //Check that associate times and name is correct.
-  if(name == "")
-  {
-    errorHandler(document.querySelector('#name'), "Please fill out associate name!")
-    return;
-  }
-  //Does an associate already exist?
-  for(let nameindex = 0; nameindex < assocaites.length; nameindex++)
-    {
-      if(assocaites[nameindex].name == name)
-      {
-        errorHandler(document.querySelector('#name'), "Assocaite with same name already exists! Please use a different name!")
-        return;
-      }
-    }
-  if(end <= start)
-  {
-    errorHandler(document.querySelector('#end'), "Invalid end schedule!")
-    return;
-  }
-  if(startMeal == -1 && endMeal != -1 || startMeal != -1 && endMeal == -1)
-  {
-    errorHandler(document.querySelector('#endMeal'), "Invalid end break schedule!")
-    return;
-  }
-  if(endMeal != -1 && endMeal <= startMeal)
-  {
-    errorHandler(document.querySelector('#endMeal'), "Invalid end break schedule!")
-    return;
-  }
-  if(startMeal != -1 && (start >= startMeal))
-  {
-    errorHandler(document.querySelector('#startMeal'), "Invalid start break schedule!")
-    return;
-  }
-  if(end <= endMeal)
-  {
-    errorHandler(document.querySelector('#endMeal'), "Invalid end break schedule!")
-    return;
-  }
-
-
-  assocaites.push(new Associate(name, start, startMeal, endMeal, end));
-  alert("Associate Created!");
-}
 
 //Pick asssociate for time frame, then add to schedule
 function pickAssociate(currentBlock, prevBlock, assocaitesList)
