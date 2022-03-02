@@ -21,6 +21,7 @@
     <section>
       <p class="text-center">To use, <strong>first add an associate</strong>, (must not use the same name), set the time of their schedule, then hit add associate. Then hit generate schedule after.</p>
       <h2 class="text-center">REFRESHING WILL CLEAR ALL DATA</h2>
+      <div id="alerts" class="alert" role="alert"></div>
       <form name="addAssociate" onsubmit="return false" class="form-group">
         <div class="container mb-5">
           <div class="row mb-3">
@@ -194,12 +195,16 @@
               </div>
             </div>
           </div>
-          <button id="associateButton" class="btn btn-primary"><i class="bi bi-person-plus-fill"></i> Add Associate</button>
-          <button onclick="createTable()" class="btn btn-success"><i class="bi bi-file-earmark-text-fill"></i> Generate Schedule</button>
-          <!-- Button trigger modal -->
-          <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#associatesModal" onclick="getAssociates()">
-            <i class="bi bi-people-fill"></i> Assocaites
-          </button>
+          <div id="actionButtons" class="d-flex justify-content-center">
+
+            <button id="associateButton" class="btn btn-primary me-2"><i class="bi bi-person-plus-fill"></i> <span>Add Associate</span></button>
+            <button onclick="createTable()" class="btn btn-success me-2"><i class="bi bi-file-earmark-text-fill"></i> <span>Generate Schedule</span></button>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#associatesModal" onclick="getAssociates()">
+              <i class="bi bi-people-fill"></i> <span>Assocaites</span>
+            </button>
+
+          </div>
 
           <!-- Modal -->
           <div class="modal fade" id="associatesModal" tabindex="-1" aria-labelledby="associatesModalLabel" aria-hidden="true">
@@ -212,12 +217,12 @@
                 <div class="modal-body">
                   <div class="container">
                     <div class="row">
-                      <div class="Header col-2">Name</div>
-                      <div class="Header col-2">Start</div>
-                      <div class="Header col-2">S Break</div>
-                      <div class="Header col-2">E Break</div>
-                      <div class="Header col-2">End</div>
-                      <div class="Header col-2">Edits</div>
+                      <div class="header col-2">Name</div>
+                      <div class="header col-2">Start</div>
+                      <div class="header col-2">Start Break</div>
+                      <div class="header col-2">End Break</div>
+                      <div class="header col-2">End</div>
+                      <div class="header col-2">Edits</div>
                     </div>
                     <hr>
                     <div id="associatesData"></div>
@@ -240,6 +245,7 @@
                 </div>
                 <div class="modal-body">
                   <div class="container">
+                    <div id="saveAlert" class="alert"></div>
                     <div class="row" id="edit">
                       
                     </div>
@@ -276,12 +282,14 @@
   
   </footer>
   <script>
-    console.log(table);
     function createTable()
     {
       if(assocaites.length == 0)
       {
-        alert("No associates have been added! Add assoicates first, then hit Generate Schedule");
+        const alert = document.querySelector('#alerts')
+        alert.setAttribute('data-error', `No Associates in Schedule!`)
+        alert.classList.add('alert-danger')
+        alert.innerHTML = `No Associates in Schedule! <button type="button" class="btn-close float-end" data-bs-dismiss="alert" aria-label="Close"></button>`
         return;
       }
 

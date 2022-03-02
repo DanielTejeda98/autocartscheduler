@@ -67,6 +67,13 @@ function createAssociate(name, start, startMeal, endMeal, end, isEdit=false)
 
 
   assocaites.push(new Associate(name, start, startMeal, endMeal, end));
+  if(!isEdit)
+  {
+    const alert = document.querySelector('#alerts')
+    alert.setAttribute('data-success', `${name} successfully added!`)
+    alert.classList.add('alert-success')
+    alert.innerHTML = `${name} has been successfully added! <button type="button" class="btn-close float-end" data-bs-dismiss="alert" aria-label="Close"></button>`
+  }
   return 0
 }
 
@@ -209,6 +216,10 @@ function reloadButtons() {
     if(opstatus != -1)
     {
       deleteAssociate(associateOrigName)
+      const alert = document.querySelector('#saveAlert')
+      alert.setAttribute('data-success', `${name} successfully updated!`)
+      alert.classList.add('alert-success')
+      alert.innerHTML = `${name} has been successfully added! <button type="button" class="btn-close float-end" data-bs-dismiss="alert" aria-label="Close"></button>`
     }
     //Reload associates list for other modal
     getAssociates()
