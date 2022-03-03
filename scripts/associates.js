@@ -149,7 +149,9 @@ function reloadButtons() {
       editNameHiddenInput.hidden = true
       editNameHiddenInput.value = editAssociate['name']
       const nameDiv = document.createElement('div')
-      nameDiv.classList.add('col-2')
+      // nameDiv.classList.add('col-2')
+      nameDiv.classList.add('col-sm')
+      nameDiv.classList.add('col-lg')
       nameDiv.classList.add('form-group')
       const nameInput = document.createElement('input')
       nameInput.setAttribute('type', 'text')
@@ -172,7 +174,8 @@ function reloadButtons() {
       {
         const selDiv = document.createElement('div')
         selDiv.classList.add('form-group')
-        selDiv.classList.add('col-2')
+        nameDiv.classList.add('col-sm')
+        selDiv.classList.add('col-lg-2')
         const selectsLabel = document.createElement('label')
         selectsLabel.setAttribute('for', 'edit-' + property)
         selectsLabel.innerHTML = keywords[property]
