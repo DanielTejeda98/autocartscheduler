@@ -53,14 +53,18 @@ function pickAssociate(currentBlock, prevBlock, assocaitesList)
           if(availableAssociates > 1)
           {
             //Was the associate the last on out?
-            if(prevBlock == -1 || !(schedule[prevBlock] == assocaitesList[i].name))
+            if(prevBlock === -1 || !(prevBlock === assocaitesList[i].lastOutBlock))
             {
               //Are they above the average count?
-              if((parseFloat(assocaitesList[i].outCount) <= averageOutCount) || availableAssociates < 3 || attempts > 10)
+              //Evaluate Lookback value
+              const lookback = (currentBlock - availableAssociates) < 0 ? 0 : currentBlock - availableAssociates + 1;
+              console.log("Associate Last Out: ", assocaitesList[i].lastOutBlock, "Associate List Size: ", assocaitesList.length, "Lookback Value: ", lookback, "Current Block: ", currentBlock)
+              if(assocaitesList[i].lastOutBlock < lookback || availableAssociates < 3 || attempts > 10)
               {
                 console.log('Average Out Count: ' + averageOutCount);
                 console.log(assocaitesList[i].name + ' out times: ' + assocaitesList[i].outCount);
                 assocaitesList[i].outCount++;
+                assocaitesList[i].lastOutBlock = currentBlock;
                 schedule.push(assocaitesList[i].name);
                 isFound = true;
               }
@@ -86,6 +90,7 @@ function pickAssociate(currentBlock, prevBlock, assocaitesList)
           else 
           {
             assocaitesList[i].outCount++;
+            assocaitesList[i].lastOutBlock = currentBlock;
             console.log(assocaitesList[i].name + ' out times: ' + assocaitesList[i].outCount);
             schedule.push(assocaitesList[i].name);
             isFound = true;
@@ -115,6 +120,7 @@ function generateSchedule()
   for(let associateIndex = 0; associateIndex < assocaites.length; associateIndex++)
   {
     assocaites[associateIndex].outCount = 0;
+    assocaites[associateIndex].lastOutBlock = -1;
   }
 
   for(let block = 0; block < 33; block++)

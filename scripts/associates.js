@@ -10,6 +10,7 @@ class Associate {
     this.endMeal = endMeal;
     this.end = end;
     this.outCount = 0;
+    this.lastOutBlock = -1;
   }
 
 }
@@ -74,6 +75,13 @@ function createAssociate(name, start, startMeal, endMeal, end, isEdit=false)
     alert.classList.add('alert-success')
     alert.innerHTML = `${name} has been successfully added! <button type="button" class="btn-close float-end" data-bs-dismiss="alert" aria-label="Close"></button>`
   }
+
+  //Reset form
+  document.querySelector('#name').value = ""
+  document.querySelector('#start').value = 0
+  document.querySelector('#startMeal').value = 0 
+  document.querySelector('#endMeal').value = 0
+  document.querySelector('#end').value = 0
   return 0
 }
 
@@ -119,7 +127,7 @@ function getAssociates() {
 //Helper function for displaying get associates
 function filterProps(associate)
 {
-  const {outCount, ...filteredAssociate} = associate
+  const {outCount, lastOutBlock, ...filteredAssociate} = associate
   return filteredAssociate
 }
 
