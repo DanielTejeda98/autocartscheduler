@@ -10,7 +10,7 @@ function pickAssociate(currentBlock, prevBlock, assocaitesList)
   let averageOutCount = 0;
   for(let j = 0; j < assocaitesList.length; j++)
   {
-    if(currentBlock >= assocaitesList[j].start && currentBlock < assocaitesList[j].end && (currentBlock != assocaitesList[j].startMeal || currentBlock >= assocaitesList[j].endMeal))
+    if(currentBlock >= assocaitesList[j].start && currentBlock < assocaitesList[j].end && (currentBlock < assocaitesList[j].startMeal || currentBlock >= assocaitesList[j].endMeal))
     {
       availableAssociates++;
       //Sum all avaiable counts
@@ -48,7 +48,7 @@ function pickAssociate(currentBlock, prevBlock, assocaitesList)
       {
         console.log(assocaitesList[i].name + ' is on property.')
         //Is the associate on break?
-        if(currentBlock != assocaitesList[i].startMeal || currentBlock >= assocaitesList[i].endMeal)
+        if(currentBlock < assocaitesList[i].startMeal || currentBlock >= assocaitesList[i].endMeal)
         {
           if(availableAssociates > 1)
           {
